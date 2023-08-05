@@ -1,0 +1,180 @@
+.home-header {
+  background-color: #003700;
+  width: 100%;
+  height: 40px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px;
+}
+
+.shop-now {
+  cursor: pointer;
+}
+
+.shop-now:hover {
+  color: #00ff00;
+}
+
+.location-lang {
+  display: flex;
+  flex-direction: row;
+}
+
+.location-lang button {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar {
+  width: 100%;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  display: flex;
+}
+
+.navbar-logo a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
+
+.navbar-logo img {
+  height: 40px;
+  width: 40px;
+}
+
+.navbar-logo span {
+  font-size: 24px;
+  font-weight: 700;
+  color: #003700;
+}
+
+.navbar-menu {
+  display: flex;
+  margin-top: 4px;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-link a {
+  text-decoration: none;
+  color: #333333;
+  font-weight: bold;
+}
+
+.navbar-link a:hover {
+  color: #0a58ca;
+}
+
+.navbar-link div {
+  bottom: 5px;
+}
+
+.navbar-link button {
+  text-decoration: none;
+  color: #333333;
+  font-weight: bold;
+  background: transparent;
+  border: none;
+  margin-bottom: 4px;
+}
+
+.navbar-search {
+  position: relative;
+}
+
+.navbar-search input {
+  width: 320px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  padding-left: 20px;
+  background-color: #f0f0f0;
+}
+
+.navbar-search button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background: transparent;
+}
+
+.navbar-search button i {
+  color: white;
+}
+
+.navbar-toggle {
+  display: none;
+}
+
+.account-cart {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  gap: 12px;
+}
+
+.account:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.cart:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .home-header {
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+  }
+
+  .offer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .bar {
+    display: none;
+  }
+
+  .navbar-menu {
+    display: none;
+  }
+
+  .navbar-search {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+}

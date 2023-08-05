@@ -6,10 +6,22 @@ export const getProducts = createAsyncThunk("getShoppingProducts", async () => {
   return data;
 });
 
+export const getCategories = createAsyncThunk(
+  "getShoppingCategories",
+  async () => {
+    const response = await fetch(
+      "https://fakestoreapi.com/products/categories"
+    );
+    const data = await response.json();
+    return data;
+  }
+);
+
 export const productSlice = createSlice({
   name: "shoppingProduct",
   initialState: {
     products: [],
+    categories: [],
     loading: false,
     error: null,
   },
@@ -22,6 +34,17 @@ export const productSlice = createSlice({
       state.products = action.payload;
     },
     [getProducts.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    [getCategories.pending]: (state) => {
+      state.loading = true;
+    },
+    [getCategories.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.categories = action.payload;
+    },
+    [getCategories.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },

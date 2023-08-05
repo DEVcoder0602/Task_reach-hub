@@ -1,14 +1,16 @@
 import { useEffect } from "react";
 import ProductCard from "./ProductCard";
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts } from "../../slices/productSlices";
+import { getProducts, getCategories } from "../../slices/productSlices";
 
 const Products = () => {
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.product.products);
+  // const allCategories = useSelector((state) => state.product.categories);
 
   useEffect(() => {
     dispatch(getProducts());
+    dispatch(getCategories());
   }, []);
 
   return (

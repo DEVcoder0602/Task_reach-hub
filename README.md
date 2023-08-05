@@ -1,8 +1,11 @@
-# React + Vite
+# E-Commerce Website Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the E-Commerce Website project! This project is a sample implementation of an e-commerce website's user interface, built using React.js and managed state with Redux Toolkit. It allows users to browse and view various products fetched from an API.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React.js + Vite
+- Redux Toolkit (For State Management)
+- Fetch() (for API requests)
+- React Router (for routing)
+- CSS and Bootstrap (for styling)

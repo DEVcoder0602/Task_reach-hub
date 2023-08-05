@@ -1,9 +1,11 @@
 import "./topbar.css";
 import logo from "../../assets/logo.png";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Topbar = () => {
   const location = useLocation();
+  const allCategories = useSelector((state) => state.product.categories);
 
   return (
     <div>
@@ -105,21 +107,17 @@ const Topbar = () => {
                       Categories
                     </button>
                     <ul className="dropdown-menu">
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Action
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Another action
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Something else here
-                        </a>
-                      </li>
+                      {allCategories?.map((category, index) => (
+                        <li key={index}>
+                          <a
+                            className="dropdown-item"
+                            href="#"
+                            style={{ textTransform: "capitalize" }}
+                          >
+                            {category}
+                          </a>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </li>

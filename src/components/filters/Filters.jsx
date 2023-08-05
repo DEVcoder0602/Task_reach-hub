@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import "./filters.css";
 
 const filtercategories = [
@@ -12,6 +13,7 @@ const filtercategories = [
 
 const Filters = () => {
   const [showFilters, setShowFilters] = useState(false);
+  const allCategories = useSelector((state) => state.product.categories);
 
   return (
     <div className="filters mt-4">
@@ -27,23 +29,40 @@ const Filters = () => {
               >
                 {category}
               </button>
-              <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
+
+              {category === "Product Type" ? (
+                <ul className="dropdown-menu">
+                  {allCategories.map((category, catIndex) => (
+                    <li key={catIndex}>
+                      <a
+                        className="dropdown-item"
+                        href="#"
+                        style={{ textTransform: "capitalize" }}
+                      >
+                        {category}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <ul className="dropdown-menu">
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Action
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Another action
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Something else here
+                    </a>
+                  </li>
+                </ul>
+              )}
             </div>
           </li>
         ))}

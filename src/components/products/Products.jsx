@@ -1,16 +1,24 @@
 import { useEffect } from "react";
 import ProductCard from "./ProductCard";
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts, getCategories } from "../../slices/productSlices";
+import {
+  getProducts,
+  getCategories,
+  filterProducts,
+} from "../../slices/productSlices";
 
 const Products = () => {
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.product.products);
+  const filteredProducts = useSelector(
+    (state) => state.product.filteredProducts
+  );
   // const allCategories = useSelector((state) => state.product.categories);
 
   useEffect(() => {
     dispatch(getProducts());
     dispatch(getCategories());
+    dispatch(filterProducts(allProducts));
   }, []);
 
   return (
@@ -20,10 +28,12 @@ const Products = () => {
         className="d-flex justify-content-center flex-wrap"
         style={{ gap: "20px" }}
       >
-        {allProducts?.map((product) => (
+        {filteredProducts?.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+      {console.log("Filtered Products : ", filteredProducts)}
+      {/* {console.log("All Products : ", allProducts)} */}
     </div>
   );
 };

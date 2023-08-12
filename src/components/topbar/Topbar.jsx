@@ -1,11 +1,23 @@
 import "./topbar.css";
 import logo from "../../assets/logo.png";
 import { Link, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { filterProducts } from "../../slices/productSlices";
 
 const Topbar = () => {
   const location = useLocation();
   const allCategories = useSelector((state) => state.product.categories);
+  const allProducts = useSelector((state) => state.product.products);
+
+  const dispatch = useDispatch();
+
+  const handleSearch = (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    const filteredData = allProducts.filter((product) => {
+      return product.title.toLowerCase().includes(searchTerm);
+    });
+    dispatch(filterProducts(filteredData));
+  };
 
   return (
     <div>
@@ -133,7 +145,11 @@ const Topbar = () => {
               </ul>
             </div>
             <div className="navbar-search">
-              <input type="text" placeholder="Search Product" />
+              <input
+                type="text"
+                placeholder="Search Product Name"
+                onChange={handleSearch}
+              />
               <button type="submit">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

@@ -13,6 +13,7 @@ const filtercategories = [
 
 const Filters = () => {
   const [showFilters, setShowFilters] = useState(false);
+
   const allCategories = useSelector((state) => state.product.categories);
 
   return (
